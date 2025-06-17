@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Orange.buy - Registro</title>
+    <style>
+        body {
+            font-family: Verdana;
+        }
+        .header {
+            display: grid;
+            grid-template-columns: 125px 1000px 200px 200px;
+            background-color: cornflowerblue;
+            border-radius: 20px;
+        }
+        #logo {
+            width: 80px;
+            margin: 10px 20px 10px 30px;
+        }
+        h3 {
+            margin: 10px 5px 20px 20px;
+            font-size: 50px;
+            color:white;
+            font-family: 'Segoe UI';
+            color:rgb(240, 174, 50);
+        }
+        .referencia {
+            text-align: center;
+            font-size: 20px;
+            color:white;
+            margin: 35px 0px 20px 0px;
+            color:white;
+        }
+        .formulario {
+            text-align: center;
+            border: 1px solid gray;
+            margin-top: 0;
+            margin-left: 400px;
+            margin-right: 400px;
+        }
+        #subtitulo {
+            background-color: cornflowerblue;
+            border-radius: 20px 20px 0 0;
+            padding:15px;
+            margin-bottom: 0;
+            margin-left: 400px;
+            margin-right: 400px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'manager/naranja.png' %}" id="logo">
+        <h3>Orange<span style="color:white; font-size: 15px;">.buy</span></h3>
+        <a class="referencia" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
+        <a class="referencia" href="{% url 'registrar' %}">Registrarse</a>
+    </div>
+
+    <h1>Registrarse</h1>
+
+    <h2 id="subtitulo">Introduce tus datos:</h2>
+    <div class="formulario">
+        {% csrf_token %}
+
+        <label>Nombre de Usuario</label><br>
+        {{ form.username }}<br>
+
+        <label>Correo Electrónico</label><br>
+        {{ form.email }}<br>
+
+        <label>Contraseña</label><br>
+        {{ form.password1 }}<br>
+
+        <label>Repetir Contraseña</label><br>
+        {{ form.password2 }}<br>
+
+
+        <form>
+            <button type="submit">Continuar</button>
+        </form>
+    </div>
+</body>
+</html>

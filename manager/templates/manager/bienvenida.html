@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Orange.buy</title>
+    <style>
+        body {
+            font-family: Verdana;
+        }
+        .header {
+            display: grid;
+            grid-template-columns: 125px 1000px 200px 200px;
+            background-color: cornflowerblue;
+            border-radius: 20px;
+        }
+        #logo {
+            width: 80px;
+            margin: 10px 20px 10px 30px;
+        }
+        h3 {
+            margin: 10px 5px 20px 20px;
+            font-size: 50px;
+            color:white;
+            font-family: 'Segoe UI';
+            color:rgb(240, 174, 50);
+        }
+        .referencia {
+            text-align: center;
+            font-size: 20px;
+            color:white;
+            margin: 35px 0px 20px 0px;
+            color:white;
+        }
+        .cuerpo {
+            text-align: center;
+            font-family: Verdana;
+
+        }
+        #titulo {
+            font-family: 'Segoe UI';
+            font-size: 200px;
+            padding:0px;
+            margin: 60px 0 0 0;
+            color:rgb(240, 174, 50);
+        }
+        #punto_buy {
+            font-size: 50px;
+            color:cornflowerblue;
+        }
+        #subtitulo {
+            color:cornflowerblue;
+        }
+        #texto {
+            color:black;
+        }
+        .aclaracion {
+            color:black;
+            font-size: 10px;
+            margin-top:80px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+    <img src="{% static 'manager/naranja.png' %}" id="logo">
+    <h3>Orange<span style="color:white; font-size: 15px;">.buy</span></h3>
+    <a class="referencia" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
+    <a class="referencia" href="{% url 'registrar' %}">Registrarse</a>
+    </div>
+
+    <div class="cuerpo">
+        <h1 id="titulo">Orange<span id="punto_buy">.buy</span></h1>
+        <h2 id="subtitulo"><em>Si el mundo te da naranjas...</em></h2>
+        <p id="texto">¡La app web de <strong>compra y venta de naranjas</strong> más grande del mundo!</p>
+    </div>
+
+    <div class="aclaracion">
+        <p>"Orange.buy" es una aplicación web (marketplace online) diseñada para conectar directamente a productores y consumidores de naranjas. Su objetivo principal es facilitar la compra y venta de esta fruta de manera eficiente, transparente y justa, eliminando intermediarios innecesarios. La plataforma permite a los agricultores ofrecer sus cosechas de naranjas directamente al público, fijando sus propios precios y condiciones, mientras que los compradores pueden explorar una variedad de tipos de naranja, orígenes y precios, realizando pedidos cómodamente desde sus dispositivos. La app busca garantizar la frescura del producto y beneficiar tanto a productores (mejor margen de ganancia) como a consumidores (precios más competitivos y acceso a producto fresco).</p>
+    </div>
+
+</body>
+</html>

@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +11,9 @@
         }
         .header {
             display: grid;
-            grid-template-columns: 125px 1000px 200px 200px;
-            background-color: cornflowerblue;
+            grid-template-columns: 125px 1200px 110px 180px 100px;
+            border-bottom: 0.5px solid lightgray;
+            box-shadow: 0 0 5px 0;
             border-radius: 20px;
         }
         #logo {
@@ -25,26 +28,62 @@
             color:rgb(240, 174, 50);
         }
         .referencia {
-            text-align: center;
+            text-align: left;
             font-size: 20px;
-            color:white;
+            color:cornflowerblue;
             margin: 35px 0px 20px 0px;
-            color:white;
+        }
+        h1 {
+            font-size: 70px;
+            text-align: center;
+            color:cornflowerblue;
         }
         .formulario {
             text-align: center;
             border: 1px solid gray;
-            margin-top: 0;
-            margin-left: 400px;
-            margin-right: 400px;
+            border-radius: 0 0 20px 20px;
+            margin-left: 600px;
+            margin-right: 600px;
+            
         }
         #subtitulo {
-            background-color: cornflowerblue;
+            text-align: center;
+            font-family: 'Segoe UI';
+            font-size: 20px;
+            color: white;
+            background-color: orange;
             border-radius: 20px 20px 0 0;
-            padding:15px;
-            margin-bottom: 0;
-            margin-left: 400px;
-            margin-right: 400px;
+            padding:1px;
+            margin-left: 600px;
+            margin-right: 600px;
+        }
+        .form-registro {
+            font-size: 20px;
+            border-radius: 10px;
+            border: 1px gray solid;
+            padding: 10px;
+            margin: 15px;
+            margin-top: 20px;
+            color:gray;
+        }
+        .etiqueta {
+            font-size: 20px;
+            margin: 25px;
+        }
+
+        .error {
+            font-size: 20px;
+            color:crimson;
+            font-weight: 500;
+        }
+
+        #boton {
+            font-size: 20px;
+            margin: 20px;
+            font-family: 'Segoe UI';
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px gray solid;
         }
 
 
@@ -54,32 +93,49 @@
 <body>
     <div class="header">
         <img src="{% static 'manager/naranja.png' %}" id="logo">
-        <h3>Orange<span style="color:white; font-size: 15px;">.buy</span></h3>
+        <h3 class="titulo_header">Orange<span style="color:cornflowerblue; font-size: 15px;">.buy</span></h3>
+        <a class="referencia" href="{% url 'bienvenida' %}">Inicio</a>
         <a class="referencia" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
         <a class="referencia" href="{% url 'registrar' %}">Registrarse</a>
     </div>
 
-    <h1>Registrarse</h1>
+    <h1>Crear Cuenta</h1>
 
-    <h2 id="subtitulo">Introduce tus datos:</h2>
+    <div id="subtitulo">
+        <h2>Introduce tus datos:</h2>
+    </div>
+
     <div class="formulario">
-        {% csrf_token %}
+        <form method="POST">
+            {% csrf_token %}
 
-        <label>Nombre de Usuario</label><br>
-        {{ form.username }}<br>
+            {{ form.username }}
 
-        <label>Correo Electrónico</label><br>
-        {{ form.email }}<br>
+            {{ form.email }}<br>
 
-        <label>Contraseña</label><br>
-        {{ form.password1 }}<br>
+            {{ form.password1 }}
 
-        <label>Repetir Contraseña</label><br>
-        {{ form.password2 }}<br>
+            {{ form.password2 }}<br>
 
+            <button type="submit" id="boton">Continuar</button>
 
-        <form>
-            <button type="submit">Continuar</button>
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p class="error">{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+            {% for error in form.username.errors %}
+                <p class="error">{{ error }}</p>
+            {% endfor %}
+            {% for error in form.email.errors %}
+                    <p class="error">{{ error }}</p>
+            {% endfor %}
+            {% for error in form.password1.errors %}
+                    <p class="error">{{ error }}</p>
+            {% endfor %}
+            {% for error in form.password2.errors %}
+                    <p class="error">{{ error }}</p>
+            {% endfor %}
         </form>
     </div>
 </body>

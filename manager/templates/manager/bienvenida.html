@@ -9,27 +9,27 @@
         }
         .header {
             display: grid;
-            grid-template-columns: 125px 1000px 200px 200px;
-            background-color: cornflowerblue;
+            grid-template-columns: 125px 1200px 110px 180px 100px;
+            border-bottom: 0.5px solid lightgray;
+            box-shadow: 0 0 5px 0;
             border-radius: 20px;
         }
         #logo {
             width: 80px;
             margin: 10px 20px 10px 30px;
         }
-        h3 {
+        .titulo_header {
             margin: 10px 5px 20px 20px;
             font-size: 50px;
-            color:white;
+            color:cornflowerblue;
             font-family: 'Segoe UI';
             color:rgb(240, 174, 50);
         }
         .referencia {
-            text-align: center;
+            text-align: left;
             font-size: 20px;
-            color:white;
+            color:cornflowerblue;
             margin: 35px 0px 20px 0px;
-            color:white;
         }
         .cuerpo {
             text-align: center;
@@ -49,14 +49,17 @@
         }
         #subtitulo {
             color:cornflowerblue;
+            font-size: 30px;
         }
         #texto {
             color:black;
+            font-size: 40px;
         }
         .aclaracion {
             color:black;
-            font-size: 10px;
+            font-size: 15px;
             margin-top:80px;
+            text-align: center;
         }
     </style>
 </head>
@@ -64,7 +67,8 @@
     
     <div class="header">
     <img src="{% static 'manager/naranja.png' %}" id="logo">
-    <h3>Orange<span style="color:white; font-size: 15px;">.buy</span></h3>
+    <h3 class="titulo_header">Orange<span style="color:cornflowerblue; font-size: 15px;">.buy</span></h3>
+    <a class="referencia" href="{% url 'bienvenida' %}">Inicio</a>
     <a class="referencia" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
     <a class="referencia" href="{% url 'registrar' %}">Registrarse</a>
     </div>

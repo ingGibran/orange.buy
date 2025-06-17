@@ -13,8 +13,11 @@ def registrar(request):
         if form.is_valid():
             form.save()
             return redirect('iniciar_sesion')
+        else:
+            return render(request, 'manager/registrar.html', {'form': form})
     else:
         form = RegistroForm()
+        
     return render(request, 'manager/registrar.html', {'form':form})
 
 

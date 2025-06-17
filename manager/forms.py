@@ -34,3 +34,23 @@ class RegistroForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email' ,'password1', 'password2']
+
+
+class LoginForn(AuthenticationForm):
+    username = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={
+            'class': 'form-registro',
+            'placeholder': 'Nombre de Usuario'
+        })
+    )
+    password = forms.CharField(
+        max_length=100,
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-registro',
+            'placeholder': 'Contraseña'
+        })
+    )
+    class Meta:
+        model = User
+        fields = ['username','password']

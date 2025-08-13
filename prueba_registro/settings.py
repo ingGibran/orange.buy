@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'manager',
+    'tienda'
 ]
 
 MIDDLEWARE = [
@@ -130,5 +131,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'menu'
+LOGIN_REDIRECT_URL = 'menu_tienda'
 LOGOUT_REDIRECT_URL = 'bienvenida'

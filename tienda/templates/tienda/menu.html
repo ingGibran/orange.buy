@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Verdana;
+        }
+        .header {
+            display: grid;
+            grid-template-columns: 100px 400px 100px 150px 150px 100px 80px 250px 150px;
+            border-bottom: 0.5px solid lightgray;
+            box-shadow: 0 0 5px 0;
+            border-radius: 20px;
+        }
+        #logo {
+            width: 80px;
+            margin: 10px 20px 10px 30px;
+        }
+        .titulo_header {
+            margin: 10px 5px 20px 20px;
+            font-size: 50px;
+            color:cornflowerblue;
+            font-family: 'Segoe UI';
+            color:rgb(240, 174, 50);
+        }
+        .referencia {
+            text-align: left;
+            font-size: 20px;
+            color:cornflowerblue;
+            margin: 35px 0px 20px 0px;
+        }
+        #saldo {
+            border: 1px solid black;
+            background-color: orange;
+            color:white;
+            margin: 35px 100px 20px 10px;
+            text-align: center;
+            font-size: 30px;
+            padding: 5px;
+        }
+        .cuerpo {
+            text-align: center;
+            font-family: Verdana;
+        }
+        #titulo {
+            font-family: 'Segoe UI';
+            font-size: 200px;
+            padding:0px;
+            margin: 60px 0 0 0;
+            color:rgb(240, 174, 50);
+        }
+        #punto_buy {
+            font-size: 50px;
+            color:cornflowerblue;
+        }
+        #subtitulo {
+            color:cornflowerblue;
+            font-size: 30px;
+        }
+        #texto {
+            color:black;
+            font-size: 40px;
+        }
+        .aclaracion {
+            color:black;
+            font-size: 15px;
+            margin-top:80px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'manager/naranja.png' %}" id="logo">
+        <h3 class="titulo_header">Orange<span style="color:cornflowerblue; font-size: 15px;">.buy</span></h3>
+        <a class="referencia" href="{% url 'bienvenida' %}">Perfil</a>
+        <a class="referencia" href="{% url 'iniciar_sesion' %}">Mis Compras</a>
+        <a class="referencia" href="{% url 'iniciar_sesion' %}">Mis Ventas</a>
+        <a class="referencia" href="{% url 'iniciar_sesion' %}">Vender</a>
+        <p class="referencia" style="color:black">Saldo:</p>
+        <div id="saldo">
+            140.50
+        </div>
+        <a class="referencia" href="{% url 'registrar' %}">Cerrar Sesión</a>
+    </div>
+</body>
+</html>

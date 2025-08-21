@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Orange.buy - Mis Ventas</title>
+</head>
+<body>
+    <h1>Mis ventas :)</h1>
+
+    {% for venta in ventas %}
+        <p>{{ venta.tipo }}</p>
+    {% endfor %}
+
+</body>
+</html>

@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Orange.buy - Tienda</title>
-    <style>
+    <title>Orange.buy - Vender</title>
+        <style>
         body {
             font-family: Verdana;
         }
         .header {
             display: grid;
-            grid-template-columns: 100px 600px 180px 170px 120px 100px 150px;
+            grid-template-columns: 100px 600px 100px 180px 170px 100px 150px;
             border-bottom: 0.5px solid lightgray;
             box-shadow: 0 0 5px 0;
             border-radius: 20px;
@@ -60,17 +60,52 @@
             margin-top:80px;
             text-align: center;
         }
+        .formulario{
+            font-size: 20px;
+            border-radius: 10px;
+            border: 1px gray solid;
+            padding: 10px;
+            margin: 15px;
+            margin-top: 20px;
+            color:gray;
+            text-align: center;
+        }
+        .form{
+            font-size: 20px;
+            border-radius: 10px;
+            border: 1px gray solid;
+            padding: 10px;
+            margin: 15px;
+            margin-top: 20px;
+            color:gray;
+        }
+        #boton {
+            font-size: 20px;
+            margin: 20px;
+            font-family: 'Segoe UI';
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px gray solid;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <img src="{% static 'manager/naranja.png' %}" id="logo">
         <h3 class="titulo_header">Orange<span style="color:cornflowerblue; font-size: 15px;">.buy</span></h3>
+        <a class="referencia" href="{% url 'menu_tienda' %}">Menú</a>
         <a class="referencia" href="{% url 'menu_tienda' %}">Mis Compras</a>
         <a class="referencia" href="{% url 'menu_tienda' %}">Mis Ventas</a>
-        <a class="referencia" href="{% url 'vender' %}">Vender</a>
         <a class="referencia" href="{% url 'menu_tienda' %}">Perfil</a>
         <a class="referencia" href="{% url 'menu_tienda' %}" style="color:red">Cerrar Sesión</a>
+    </div>
+
+    <div class="formulario">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button id="boton" type="submit">Vender Naranjas</button>
+        </form>
     </div>
 </body>
 </html>

@@ -31,35 +31,7 @@
             color:cornflowerblue;
             margin: 35px 0px 20px 0px;
         }
-        .cuerpo {
-            text-align: center;
-            font-family: Verdana;
-        }
-        #titulo {
-            font-family: 'Segoe UI';
-            font-size: 200px;
-            padding:0px;
-            margin: 60px 0 0 0;
-            color:rgb(240, 174, 50);
-        }
-        #punto_buy {
-            font-size: 50px;
-            color:cornflowerblue;
-        }
-        #subtitulo {
-            color:cornflowerblue;
-            font-size: 30px;
-        }
-        #texto {
-            color:black;
-            font-size: 40px;
-        }
-        .aclaracion {
-            color:black;
-            font-size: 15px;
-            margin-top:80px;
-            text-align: center;
-        }
+
         .formulario{
             font-size: 20px;
             border-radius: 10px;
@@ -87,6 +59,7 @@
             border-radius: 5px;
             border: 1px gray solid;
         }
+
     </style>
 </head>
 <body>
@@ -95,7 +68,7 @@
         <h3 class="titulo_header">Orange<span style="color:cornflowerblue; font-size: 15px;">.buy</span></h3>
         <a class="referencia" href="{% url 'menu_tienda' %}">Menú</a>
         <a class="referencia" href="{% url 'menu_tienda' %}">Mis Compras</a>
-        <a class="referencia" href="{% url 'menu_tienda' %}">Mis Ventas</a>
+        <a class="referencia" href="{% url 'mis_ventas' %}">Mis Ventas</a>
         <a class="referencia" href="{% url 'menu_tienda' %}">Perfil</a>
         <a class="referencia" href="{% url 'menu_tienda' %}" style="color:red">Cerrar Sesión</a>
     </div>

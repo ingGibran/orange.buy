@@ -44,14 +44,21 @@
         }
         .tipo {
             text-align: center;
-            font-size: 30px;
+            font-size: 35px;
             letter-spacing: 5px;
+            font-weight: bold;
             color: orange;
             background-color: cornflowerblue;
             border: 1px black solid;
             border-radius: 10px;
             margin: 10px 20px 10px 20px;
             padding: 10px;
+        }
+        .producto {
+            border: 1px solid black;
+            width: 300px;
+            padding: 5px;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -66,9 +73,19 @@
         <a class="referencia" href="{% url 'menu_tienda' %}" style="color:red">Cerrar Sesión</a>
     </div>
 
+    {% if not valencia and not navel and not sanguinea and not otra %}
+        <p style="margin: 50px; text-align: center; color: orange; font-size: 20px;">Lo sentimos. Por el momento no hay ofertas disponibles. :(</p>
+    {% endif %}
+
     {% if valencia %}
         <div class="tipo">
             Valencia
+        </div>
+        <div class="producto">
+            {% for producto in valencia %}
+                <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
+                <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+            {% endfor %}
         </div>
     {% endif %}
 
@@ -76,17 +93,35 @@
         <div class="tipo">
             Navel
         </div>
+        <div class="producto">
+            {% for producto in navel %}
+                <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
+                <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+            {% endfor %}
+        </div>
     {% endif %}
     
     {% if sanguinea %}
         <div class="tipo">
             Sanguinea
         </div>
+        <div class="producto">
+            {% for producto in sanguinea %}
+                <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
+                <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+            {% endfor %}
+        </div>
     {% endif %}
 
     {% if otra %}
         <div class="tipo">
             Otros tipos
+        </div>
+        <div class="producto">
+            {% for producto in otra %}
+                <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
+                <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+            {% endfor %}
         </div>
     {% endif %}
 

@@ -7,7 +7,7 @@ class AgregarProductoForm(forms.ModelForm):
                         widget=forms.Select(
                             attrs={'class':'form'}
                         ))
-    precio_por_kilo = forms.FloatField(label='Precio por Kilo:',
+    precio_por_kilo = forms.DecimalField(label='Precio por Kilo:',
                         widget=forms.NumberInput(
                             attrs={'class':'form', 'min':'0'}
                         ))

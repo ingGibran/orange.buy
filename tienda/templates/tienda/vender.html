@@ -31,7 +31,11 @@
             color:cornflowerblue;
             margin: 35px 0px 20px 0px;
         }
-
+        h1 {
+            font-size: 70px;
+            text-align: center;
+            color:cornflowerblue;
+        }
         .formulario{
             font-size: 20px;
             border-radius: 10px;
@@ -70,8 +74,10 @@
         <a class="referencia" href="{% url 'menu_tienda' %}">Mis Compras</a>
         <a class="referencia" href="{% url 'mis_ventas' %}">Mis Ventas</a>
         <a class="referencia" href="{% url 'menu_tienda' %}">Perfil</a>
-        <a class="referencia" href="{% url 'menu_tienda' %}" style="color:red">Cerrar Sesión</a>
+        <a class="referencia" href="{% url 'cerrar_sesion' %}" style="color:red">Cerrar Sesión</a>
     </div>
+
+    <h1>Vender</h1>
 
     <div class="formulario">
         <form method="POST">

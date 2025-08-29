@@ -42,6 +42,11 @@
             font-size: 50px;
             color:cornflowerblue;
         }
+        h1 {
+            font-size: 70px;
+            text-align: center;
+            color:cornflowerblue;
+        }
         .tipo {
             text-align: center;
             font-size: 35px;
@@ -59,6 +64,17 @@
             width: 300px;
             padding: 5px;
             font-size: 20px;
+            margin: 10px 10px 10px 10px;
+            background-color: lightblue;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 3px 0;
+
+        }
+        .contenedor_producto {
+            margin: 20px;
+            display: flex;
+            align-items: center;
         }
     </style>
 </head>
@@ -70,8 +86,10 @@
         <a class="referencia" href="{% url 'mis_ventas' %}">Mis Ventas</a>
         <a class="referencia" href="{% url 'vender' %}">Vender</a>
         <a class="referencia" href="{% url 'menu_tienda' %}">Perfil</a>
-        <a class="referencia" href="{% url 'menu_tienda' %}" style="color:red">Cerrar Sesión</a>
+        <a class="referencia" href="{% url 'cerrar_sesion' %}" style="color:red">Cerrar Sesión</a>
     </div>
+
+    <h1>Comprar <span style="color:orange;">Naranjas</span></h1>
 
     {% if not valencia and not navel and not sanguinea and not otra %}
         <p style="margin: 50px; text-align: center; color: orange; font-size: 20px;">Lo sentimos. Por el momento no hay ofertas disponibles. :(</p>
@@ -81,10 +99,12 @@
         <div class="tipo">
             Valencia
         </div>
-        <div class="producto">
+        <div class="contenedor_producto">
             {% for producto in valencia %}
-                <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
-                <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+                <div class="producto">
+                    <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
+                    <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+                </div>
             {% endfor %}
         </div>
     {% endif %}
@@ -93,10 +113,12 @@
         <div class="tipo">
             Navel
         </div>
-        <div class="producto">
+        <div class="contenedor_producto">
             {% for producto in navel %}
-                <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
-                <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+                <div class="producto">
+                    <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
+                    <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+                </div>
             {% endfor %}
         </div>
     {% endif %}
@@ -105,10 +127,13 @@
         <div class="tipo">
             Sanguinea
         </div>
-        <div class="producto">
+
+        <div class="contenedor_producto">
             {% for producto in sanguinea %}
-                <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
-                <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+                <div class="producto">
+                    <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
+                    <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+                </div>
             {% endfor %}
         </div>
     {% endif %}
@@ -117,10 +142,12 @@
         <div class="tipo">
             Otros tipos
         </div>
-        <div class="producto">
+        <div class="contenedor_producto">
             {% for producto in otra %}
-                <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
-                <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+                <div class="producto">
+                    <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
+                    <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
+                </div>
             {% endfor %}
         </div>
     {% endif %}

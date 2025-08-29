@@ -9,4 +9,6 @@ urlpatterns = [
     path('pausar/<int:venta_id>/', views.pausar_venta, name='pausar_venta'),
     path('reanudar/<int:venta_id>/', views.reanudar_venta, name='reanudar_venta'),
     path('eliminar/<int:venta_id>/', views.eliminar_venta, name='eliminar_venta'),
+    
+    path('cerrar_sesion/', views.cerrar_sesion, name='cerrar_sesion'),
 ]

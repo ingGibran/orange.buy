@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from .forms import AgregarProductoForm
 from .models import Producto, Producto
 
@@ -51,4 +52,9 @@ def eliminar_venta(request, venta_id):
     producto = get_object_or_404(Producto, id=venta_id, vendedor=request.user)
     producto.delete()
     return redirect('mis_ventas')
+
+@login_required
+def cerrar_sesion(request):
+    logout(request)
+    return redirect('bienvenida')
     

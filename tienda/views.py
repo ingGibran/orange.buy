@@ -10,7 +10,7 @@ from .models import Producto, Producto
 def menu_tienda(request):
     valencia = Producto.objects.filter(activo=True, tipo='valencia')
     navel = Producto.objects.filter(activo=True, tipo='navel')
-    sanguinea = Producto.objects.filter(activo=True, tipo='sanguinea')
+    sanguinea = Producto.objects.filter(activo=True, tipo='sanguina')
     otra = Producto.objects.filter(activo=True, tipo='otra')
     return render(request, 'tienda/menu.html', {'valencia':valencia, 'navel':navel, 'sanguinea': sanguinea, 'otra':otra})
 

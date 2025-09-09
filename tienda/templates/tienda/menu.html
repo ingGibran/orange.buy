@@ -62,6 +62,7 @@
         .producto {
             border: 5px solid orange;
             width: 300px;
+            height: 100px;
             padding: 5px;
             font-size: 20px;
             margin: 10px 10px 10px 10px;
@@ -105,7 +106,7 @@
         </div>
         <div class="contenedor_producto">
             {% for producto in valencia %}
-                <a href="{% url 'menu_tienda' %}" class="producto">
+                <a href="{% url 'producto' producto.id %}" class="producto">
                         <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
                         <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
                         <strong>Vendido por:</strong> {{ producto.vendedor.username }}
@@ -120,7 +121,7 @@
         </div>
         <div class="contenedor_producto">
             {% for producto in navel %}
-                <a href="{% url 'menu_tienda' %}" class="producto">
+                <a href="{% url 'producto' producto.id %}" class="producto">
                         <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
                         <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
                         <strong>Vendido por:</strong> {{ producto.vendedor.username }}
@@ -136,7 +137,7 @@
 
         <div class="contenedor_producto">
             {% for producto in sanguinea %}
-                <a href="{% url 'menu_tienda' %}" class="producto">
+                <a href="{% url 'producto' producto.id %}" class="producto">
                     <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
                     <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
                     <strong>Vendido por:</strong> {{ producto.vendedor.username }}
@@ -151,7 +152,7 @@
         </div>
         <div class="contenedor_producto">
             {% for producto in otra %}
-                <a href="{% url 'menu_tienda' %}" class="producto">
+                <a href="{% url 'producto' producto.id %}" class="producto">
                     <strong>$ </strong>{{ producto.precio_por_kilo }} c/kg.<br>
                     <strong>Kilos disponibles: </strong> {{ producto.kilos_disponibles}} kg.
                     <strong>Vendido por:</strong> {{ producto.vendedor.username }}

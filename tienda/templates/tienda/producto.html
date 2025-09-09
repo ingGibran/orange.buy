@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Orange.buy - Producto</title>
+    <style>
+        body {
+            font-family: Verdana;
+        }
+        .header {
+            display: grid;
+            grid-template-columns: 100px 600px 100px 170px 120px 100px 150px;
+            border-bottom: 0.5px solid lightgray;
+            box-shadow: 0 0 5px 0;
+            border-radius: 20px;
+        }
+        #logo {
+            width: 80px;
+            margin: 10px 20px 10px 30px;
+        }
+        .titulo_header {
+            margin: 10px 5px 20px 20px;
+            font-size: 50px;
+            color:cornflowerblue;
+            font-family: 'Segoe UI';
+            color:rgb(240, 174, 50);
+        }
+        .referencia {
+            text-align: left;
+            font-size: 20px;
+            color:cornflowerblue;
+            margin: 35px 0px 20px 0px;
+        }
+        #titulo {
+            font-family: 'Segoe UI';
+            font-size: 200px;
+            padding:0px;
+            margin: 60px 0 0 0;
+            color:rgb(240, 174, 50);
+        }
+        #punto_buy {
+            font-size: 50px;
+            color:cornflowerblue;
+        }
+        h1 {
+            font-size: 70px;
+            text-align: center;
+            color:cornflowerblue;
+        }
+        .tipo {
+            text-align: center;
+            font-size: 40px;
+            letter-spacing: 5px;
+            font-weight: bold;
+            color: orange;
+            background-color: orange;
+            border: 1px black solid;
+            border-radius: 10px;
+            margin: 10px 20px 10px 20px;
+            padding: 10px;
+        }
+
+        #imagen{
+            border: 1px black solid;
+            width: 200px;
+            width:400px;
+            height:400px;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <img src="{% static 'manager/naranja.png' %}" id="logo">
+        <h3 class="titulo_header">Orange<span style="color:cornflowerblue; font-size: 15px;">.buy</span></h3>
+        <a class="referencia" href="{% url 'menu_tienda' %}">Menú</a>
+        <a class="referencia" href="{% url 'menu_tienda' %}">Mis Compras</a>
+        <a class="referencia" href="{% url 'vender' %}">Vender</a>
+        <a class="referencia" href="{% url 'menu_tienda' %}">Perfil</a>
+        <a class="referencia" href="{% url 'cerrar_sesion' %}" style="color:red">Cerrar Sesión</a>
+    </div>
+
+    <h1>Comprar <span style="color:orange;">Naranjas</span></h1>
+
+
+    <strong>Variedad: </strong>{{ producto.tipo }}
+    <strong>Precio: $</strong>{{ producto.precio_por_kilo}} por kilo
+    <strong>Vendido por: </strong>{{ producto.vendedor.username }}
+
+</body>
+</html>

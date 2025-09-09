@@ -48,6 +48,11 @@ def reanudar_venta(request, venta_id):
     return redirect('mis_ventas')
 
 @login_required
+def producto(request, producto_id):
+    producto = get_object_or_404(Producto, id=producto_id)
+    return render(request, 'tienda/producto.html', {'producto': producto})
+
+@login_required
 def eliminar_venta(request, venta_id):
     producto = get_object_or_404(Producto, id=venta_id, vendedor=request.user)
     producto.delete()
